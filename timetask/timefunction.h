@@ -80,7 +80,7 @@ int minutesconvert(int minutes)
         if (A4 == 8)  printf(" вiсiм хвилин");
         if (A4 == 9)  printf(" дев'ять хвилин");
     }
-    else 
+    else
     {
         printf("ERROR");
         _Exit(0);
