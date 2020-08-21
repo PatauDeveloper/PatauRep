@@ -1,11 +1,10 @@
-#pragma once
+#либа с функциями
 #include <locale>
 
 
 
 int hoursconvert(int hours)
 {
-    setlocale(LC_ALL, "ukr");
     {
         if (hours == 0)  printf("Нуль годин");
         if (hours == 1)  printf("Одна година");

@@ -13,7 +13,7 @@ void check1()
     }
 }
 
-int check2()
+void check2()
 {
     if (minutes > 60 || minutes < 0 || minutes == NULL) {
         printf("ERROR");
