@@ -1,41 +1,42 @@
 ﻿#include <stdio.h>
-#include <clocale>
 #include <stdlib.h>
 #include "timefunction.h"
+#include <errno.h>
+
+
+
+
 
 int hours, minutes;
 
-int check1()
+void check1()
 {
-    
-    if (hours > 24 || hours < 0 || hours == NULL) 
-    {
-        printf("%d", hours);
-        _Exit(0);
-    }
-    
-}
-
-int check2()
-{
-    if (minutes > 60 || minutes < 0 || minutes == NULL) {
-        printf("ERROR");
-        _Exit(0);
-    }
+    if (hours > 24 || hours < 0) exit(1);
 }
 
 
-int main()
-{   
-    setlocale(LC_ALL, "ukr");
+void check2()
+{
+    if (minutes > 60 || minutes < 0) _Exit(11);
+}
+
+
+int main(int argc, const char* argv[])
+{
+
+
+
     printf("Введiть час");
     printf("\nГодин:");
-    scanf_s("%d", &hours);  
+    scanf_s("%d", &hours);
     check1();
     printf("Хвилинн:");
     scanf_s("%d", &minutes);
     check2();
+
     hoursconvert(hours);
+
     minutesconvert(minutes);
+
     return(0);
 }

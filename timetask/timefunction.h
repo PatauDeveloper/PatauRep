@@ -1,11 +1,6 @@
-#pragma once
-#include <locale>
-
-
-
 int hoursconvert(int hours)
 {
-    setlocale(LC_ALL, "ukr");
+
     {
         if (hours == 0)  printf("Ќуль годин");
         if (hours == 1)  printf("ќдна година");
@@ -31,17 +26,18 @@ int hoursconvert(int hours)
         if (hours == 21)  printf("ƒвадц€ть одна година");
         if (hours == 22)  printf("ƒвадц€ть друга година");
         if (hours == 23)  printf("ƒвадц€ть трет€ година");
-        if (hours == 24)  printf("ƒвадц€ть четверта година");   
+        if (hours == 24)  printf("ƒвадц€ть четверта година");
     }
-    return 0;
+    return 3;
 }
+
 int minutesconvert(int minutes)
-{   
+{
     int A3, A4;
     A3 = ((minutes - (minutes % 10)) - (minutes - (minutes % 100))) / 10;
     A4 = minutes % 10;
-        
-    if (minutes >= 0 || minutes <= 19) 
+
+    if (minutes >= 0 || minutes <= 19)
     {
         if (minutes == 0)  printf(" нуль хвилин");
         if (minutes == 1)  printf(" одна хвилина");
@@ -64,7 +60,9 @@ int minutesconvert(int minutes)
         if (minutes == 18)  printf(" вiсiмнадц€ть хвилин");
         if (minutes == 19)  printf(" дев'€тнадц€ть хвилин");
     }
-    else if (minutes >= 20 || minutes <= 60)
+
+
+    if (minutes >= 20 || minutes <= 60)
     {
         if (A3 == 2)  printf(" двадц€ть");
         if (A3 == 3)  printf(" тридц€ть");
@@ -83,7 +81,38 @@ int minutesconvert(int minutes)
     else
     {
         printf("ERROR");
-        _Exit(0);
+        _Exit(6);
     }
-        return 0;
+}
+
+
+int inputhours()
+{
+    int h;
+    printf("¬ведiть час\n");
+    printf("√один:");
+    scanf_s("%d", &h);
+    int arrhours[1] = { h };
+    int hournum = arrhours[0];
+    if (hournum > 24 || hournum < 0 || hournum == NULL)
+    {
+        printf("ERROR");
+        _Exit(1);
+    }
+    return (hournum);
+}
+
+int inputminutes()
+{
+    int m;
+    printf("’вилинн:");
+    scanf_s("%d", &m);
+    int arrhours[1] = { m };
+    int minnum = arrhours[0];
+    if (minnum > 60 || minnum < 0 || minnum == NULL)
+    {
+        printf("ERROR");
+        _Exit(2);
+    }
+    return (minnum);
 }
